@@ -1,0 +1,13 @@
+<header>
+          <div class="center">
+          <logo>
+            <a href="/"><img src="/public/assets/images/logoTextWhite.svg" alt="Logo" /></a>
+            </logo>
+            <nav>
+                <a href="#sobre">Sobre</a>
+                <a href="#skills">Skills</a>
+                <a href="#projetos">Projetos</a>
+            </nav>
+            <button class="btn">Contato</button>
+          </div>
+        </header>
