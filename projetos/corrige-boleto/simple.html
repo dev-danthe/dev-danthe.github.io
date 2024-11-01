@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrigir Boleto</title>
+</head>
+<style>
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+conteudo {
+  padding: 20px;
+  background: #FFF;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 450px;
+  display: grid;
+}
+
+input {
+  border: solid 1px #d9d9d9;
+  border-radius: 6px;
+  padding: 10px 20px;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  margin: 5px 0;
+}
+
+:disabled {
+  background: #424242;
+  color: white;
+  border: 0;
+}
+
+button {
+  border: 0;
+  padding: 10px;
+  background: #242424;
+  color: white;
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  position: absolute;
+  margin: 5px -58px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #0f0f0f;
+  cursor: pointer;
+}
+
+#alert {
+  position: absolute;
+  justify-self: center;
+  padding: 10px 20px;
+  margin-top: 180px;
+  transition: .5s;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+}
+</style>
+<body>
+    <conteudo>
+        <tela>
+        <boleto>
+            <input type="text" id="boleto" placeholder="cole o numero copiado do gevenue">
+            <input id="corrigido" type="text" placeholder="número do boleto corrigido" disabled><button id="copiar">Copiar</button>
+        </boleto>
+        <dados>
+            <input id="valor" type="text" placeholder="R$ 0,00" disabled><button id="copiarvalor">Copiar</button>
+        </dados>
+    </tela>
+        <alert id="alert"></alert>
+    </conteudo>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const boletoInput = document.getElementById('boleto');
+    const corrigidoInput = document.getElementById('corrigido');
+    const valorInput = document.getElementById('valor');
+    const alertElement = document.getElementById('alert');
+
+
+    const showAlert = (message, type) => {
+        alertElement.textContent = message;
+        alertElement.style.background = type;
+        alertElement.style.visibility = 'visible';
+        alertElement.style.opacity = '1';
+        setTimeout(() => {
+            alertElement.style.visibility = 'hidden';
+            alertElement.style.opacity = '0';
+        }, 1500);
+    };
+
+    boletoInput.addEventListener('input', function() {
+        const boleto = boletoInput.value;
+        const corrigidoReais = boleto.replace(/R\$ [^ ]* /g, '');
+        const corrigidoFinal = corrigidoReais.replace(/[^0-9]/g, '');
+        corrigidoInput.value = corrigidoFinal;
+        const valorRetirado = boleto.match(/R\$ [^ ]* /g);
+        if (valorRetirado) {
+            valorInput.value = valorRetirado[0].trim();
+        } else if (boleto === '') {
+            valorInput.value = '';
+        }
+    });
+
+    document.querySelectorAll('button[id^="copiar"]').forEach(button => {
+        button.addEventListener('click', function() {
+            const inputId = button.id === 'copiarvalor' ? 'valor' : 'corrigido';
+            const inputValue = document.getElementById(inputId).value;
+            navigator.clipboard.writeText(inputValue);
+            showAlert('Copiado!', '#28a745');
+        });
+    });
+
+    valorInput.addEventListener('input', function() {
+        let value = valorInput.value.replace(/\D/g, '');
+        value = (value / 100).toFixed(2).replace(".", ",").replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        valorInput.value = 'R$ ' + value;
+    });
+
+    cpfInput.addEventListener('input', function(e) {
+        var value = e.target.value;
+        var cpfPattern = value.replace(/\D/g, '') // Remove qualquer coisa que não seja número
+                              .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o terceiro dígito
+                              .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o sexto dígito
+                              .replace(/(\d{3})(\d)/, '$1-$2') // Adiciona traço após o nono dígito
+                              .replace(/(-\d{2})\d+?$/, '$1'); // Impede entrada de mais de 11 dígitos
+        e.target.value = cpfPattern;
+      });
+
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-family: system-ui;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-image: url(./back.jpg);
+  background-blend-mode: screen;
+  background-color: cadetblue;
+}
+
+conteudo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+tela {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.66);
+  width: 450px;
+}
+
+boleto {
+  display: block;
+  width: 455px;
+}
+
+dados {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 94%;
+  padding: 11px 10px;
+  margin: 6px 0;
+  border: 1px solid #6060604d;
+  border-radius: 6px;
+}
+
+:disabled {
+  background: #606060;
+  color: white;
+}
+
+button {
+  background-color: #181818;
+  color: #fff;
+  border: none;
+  padding: 8.5px 10px 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: fixed;
+  margin-left: -40px;
+  margin-top: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+button img {
+  width: 20px;
+}
+
+button:hover {
+  background-color: #0e0e0e;
+}
+
+#copiarvalor, #valor {
+  margin-right: 10px;
+}
+
+#save {
+  padding: 8px;
+  border-radius: 6px;
+  margin: auto;
+  width: inherit;
+  display: grid;
+  position: inherit;
+  margin-top: 20px;
+  background: linear-gradient(156deg, rgb(64, 129, 195) 0%, rgb(99, 185, 134) 50%, rgb(35, 68, 150) 100%);
+  font-size: 20px;
+  font-weight: bold;
+  transition: background 1s;
+}
+
+#save:hover {
+  background: linear-gradient(156deg, rgba(64,129,195,1) 0%, rgba(99,185,134,1) 25%, rgba(35,68,150,1) 100%); 
+  transition: background 1s;
+}
+
+#stats {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.66);
+  top: 20px;
+  position: absolute;
+  display: inline-table;
+}
+
+#stats label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#stats div {
+  font-size: 18px;
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+}
+
+alert {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  position: absolute;
+  margin-top: 350px;
+}
+
+funcoes {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+#zerar, #verAcordos {
+  display: block;
+  position: initial;
+  margin: 5px 20px;
+  border-radius: 6px;
+  padding: 12px;
+  width: 110px;
+  font-size: 15px;
+  
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: fit-content;
+  border-radius: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.acordos-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.acordos-table th, .acordos-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.acordos-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.acordos-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.acordos-table tr:hover {
+  background-color: #ddd;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 10px 5px 8px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.66);
+  border-radius: 6px;
+}

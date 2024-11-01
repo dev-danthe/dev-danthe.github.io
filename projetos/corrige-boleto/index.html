@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/projetos/corrige-boleto/style.css">
+    <title>Corrigir Boleto</title>
+</head>
+<body>
+    <conteudo>
+        <tela>
+        <boleto>
+            <input type="text" id="boleto" placeholder="cole o numero copiado do gevenue">
+            <input id="corrigido" type="text" placeholder="número do boleto corrigido" disabled><button id="copiar"><img src="iconCopy.svg"/></button>
+        </boleto>
+        <dados>
+            <input id="valor" type="text" placeholder="R$ 0,00" disabled><button id="copiarvalor"><img src="/projetos/corrige-boleto/iconCopy.svg"/></button>
+            <input id="cpf" type="text" placeholder="000.000.000-00" >
+        </dados>
+        <button id="save">Salvar</button>
+    </tela>
+        <alert id="alert"></alert>
+    </conteudo>
+    <div id="stats">
+        <div><label>Acordos</label><x id="acordos"></x></div>
+        <div><label>Total</label><x id="valorTotal"></x></div>
+    </div>
+
+    <funcoes>
+        <button id="zerar">Zerar</button>
+        <button id="verAcordos">Ver acordos</button>
+    </funcoes>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Acordos Salvos</h2>
+            <div id="acordosList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
