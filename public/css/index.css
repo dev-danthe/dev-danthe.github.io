@@ -122,10 +122,10 @@ h3 {
 
     .background {
       position: absolute;
-      height: 100vh ;
       top: 72px;
       filter: grayscale() opacity(0.2);
-      margin-left: -140vh;
+      z-index: 1;
+      height: 150vw;
     }
 
     .container {
