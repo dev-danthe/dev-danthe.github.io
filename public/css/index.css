@@ -121,7 +121,7 @@ h3 {
     }
 
     .background {
-      position: absolute;
+      position:  absolute;
       top: 72px;
       filter: grayscale() opacity(0.2);
       z-index: 1;
